@@ -15,4 +15,4 @@ Giffe is built using cutting-edge technologies to deliver optimal performance an
  </ol>
 
  <h2>Deployment </h2>
-Giffe is deployed using Vercel. You can access the live version of the application <a href="https://giffe-rose.vercel.app/">here</a>.
+Giffe is deployed using Vercel. You can access the live version of the application <a href="https://giffe-virid.vercel.app/">here</a>.
