@@ -28,13 +28,13 @@ const FilterGif = ({ alignLeft = false, showTrending = false }) => {
     // const { filter, setFilter } = useContext(GifContext);
 
     return (
-        <div className={`flex my-4 py-3 gap-3 sticky top-[128px] left-0 z-30 bg-gray-950 ${alignLeft ? "" : "justify-end"} ${showTrending ? "justify-between flex-col sm:flex-row sm:items-center" : ""}`}>
+        <div className={`flex my-4 py-3 gap-3 sticky top-[150px] left-0 z-30 bg-gray-950 ${alignLeft ? "" : "justify-end"} ${showTrending ? "justify-between flex-col sm:flex-row sm:items-center" : ""}`}>
             {showTrending && (
                 <span className="flex gap-2">
                     {showTrending && (
                         <HiMiniArrowTrendingUp size={25} className="text-teal-400" />
                     )}
-                    <span className="font-semibold text-gray-400">Trending</span>
+                    <span className="font-semibold text-gray-400 text-xl lg:text-2xl">Trending</span>
                 </span>
             )}
 

@@ -7,6 +7,8 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { FaPaperPlane } from "react-icons/fa";
 import { IoCodeSharp } from "react-icons/io5";
 import Gif from "../components/Gif";
+import LoadingBar from 'react-top-loading-bar'
+
 // const Gif = React.lazy(() => import("../components/Gif"));
 
 const contentType = ["gifs", "stickers", "texts"];
@@ -17,16 +19,22 @@ const GifPage = () => {
   const [currentGif, setCurrentGif] = useState({});
   const [relatedGif, setRelatedGif] = useState([]);
   const [readMore, setReadMore] = useState(false);
+  const [progress, setProgress] = useState(0) ;  // top loadng bar
+
 
   const fetchGif = async () => {
+       setProgress(30);
     const gifId = slug.split("-");
     const { data } = await gf.gif(gifId[gifId.length - 1]);
+    setProgress(55);
     const { data: related } = await gf.related(gifId[gifId.length - 1], {
       limit: 10,
     });
+       setProgress(80);
     setCurrentGif(data);
     setRelatedGif(related);
-    console.log("CurrentGif : ", data);
+       setProgress(100);
+    // console.log("CurrentGif : ", data);
   };
 
   useEffect(() => {
@@ -45,6 +53,7 @@ const GifPage = () => {
 
   return (
     <div className="grid grid-cols-4 my-10 gap-4">
+       <LoadingBar color='#f11946' progress={progress}   />
 
       {/* gif information(left part of UI) visible in big screen hidden in small screen i.e mobile */}
       <div className="gifInfo hidden sm:block">

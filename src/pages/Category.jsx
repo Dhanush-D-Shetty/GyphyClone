@@ -3,16 +3,22 @@ import { useParams } from "react-router-dom";
 import FollowOn from "../components/FollowOn";
 import { GifState } from "../context/gif-context";
 import Gif from "../components/Gif";
+import LoadingBar from "react-top-loading-bar";
 
 const category = () => {
   const { category } = useParams(); //  gettng data from thr url using useParams() hook
   const { gf, filter } = GifState(); //  context api
   const [results, setResults] = useState([]);
+  const [progress, setProgress] = useState(0) ;  // top loadng bar
+
 
   const fetchOnCategory = async () => {
+      setProgress(300);
     const { data } = await gf.gifs(category, category);
+       setProgress(60);
     setResults(data);
-    console.log("searchResult : ", data);
+       setProgress(100);
+    // console.log("searchResult : ", data);
   };
 
   useEffect(() => {
@@ -22,7 +28,8 @@ const category = () => {
   return (
    
    <div className="flex flex-col sm:flex-row gap-5 my-4">
-     
+      <LoadingBar color='#f11946' progress={progress}   />
+
       {/* left part */}
       <div className="w-full sm:w-72">
         {results.length > 0 && <Gif singleGif={results[0]} hover={false} />}

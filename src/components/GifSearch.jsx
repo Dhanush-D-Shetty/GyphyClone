@@ -20,7 +20,7 @@ const GifSearch = () => {
   };
 
   return (
-    <div className="flex relative">
+    <div className="flex relative mt-5 rounded">
       <input
         type="text"
         value={query}

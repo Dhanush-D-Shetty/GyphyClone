@@ -22,11 +22,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 left-0 z-50 py-2 bg-gray-950">
+    <nav className="sticky top-0 left-0 z-50 py-4 bg-gray-950">
       <div className="relative flex justify-between items-center mb-2">
         <Link to="/" className="logo flex gap-2 items-center">
-          <img src="logo.svg" alt="giphy logo" className="w-8" />
-          <h1 className="text-3xl font-bold uppercase tracking-tight cursor-pointer">
+          <img src="logo.svg" alt="giphy logo" className="w-10" />
+          <h1 className="text-4xl font-bold uppercase tracking-tight cursor-pointer">
             Giffe
           </h1>
         </Link>
@@ -37,7 +37,7 @@ const Navbar = () => {
               <Link
                 key={category.name}
                 to={`/${category.name_encoded}`}
-                className=" hidden hover:gradient px-4 py-1 border-b-4 lg:block"
+                className=" hidden hover:gradient px-4 py-1 border-b-4 text-xl lg:block"
               > {category.name}  </Link>
             );
           })}
@@ -56,7 +56,7 @@ const Navbar = () => {
 
          {/* button for show and hdding categories*/}
           <button className="hamburger "  onClick={() => setShowCategories(!showCategories)}>
-            <GiHamburgerMenu size={20} className="block lg:hidden" />
+            <GiHamburgerMenu size={30} className="block lg:hidden" />
           </button>
         </div>
 

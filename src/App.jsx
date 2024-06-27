@@ -1,4 +1,5 @@
 import React from "react";
+import { Analytics } from '@vercel/analytics/react';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./layout/AppLayout";
 import Home from "./pages/Home";
@@ -40,6 +41,7 @@ const App = () => {
   return (
     <GifProvider>
       <RouterProvider router={router} />
+      <Analytics />
     </GifProvider>
   );
 };
